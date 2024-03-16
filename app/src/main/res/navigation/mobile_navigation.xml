@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_learning">
+
+    <fragment
+        android:id="@+id/nav_learning"
+        android:name="com.reflection.javary.fragments.learning.LearningFragment"
+        android:label="@string/title_learning"
+        tools:layout="@layout/fragment_learning" >
+        <action
+            android:id="@+id/action_nav_learning_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.reflection.javary.fragments.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

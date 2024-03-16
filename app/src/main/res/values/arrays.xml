@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="colors">
+        <item >Blue</item>
+        <item >Orange</item>
+        <item>Green </item>
+        <item>Yellow</item>
+        <item>Red</item>
+        <item>Purple</item>
+
+    </array>
+    <array name="themes">
+        <item>System </item>
+        <item >Light</item>
+        <item >Dark</item>
+
+    </array>
+    <array name="modules">
+        <item>1. Знакомство с Java</item>
+
+
+    </array>
+</resources>

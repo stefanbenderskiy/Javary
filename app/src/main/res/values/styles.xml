@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Headbar">
+        <item name="android:background"> ?attr/colorSecondary</item>
+        <item name="android:layout_height">@dimen/headbar_size</item>
+        <item name="android:layout_width">match_parent </item>
+
+    </style>
+    <style name="HorDivider">
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/grey</item>
+    </style>
+    <style name="Header">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">24dp</item>
+        <item name="fontFamily">@font/comfortaa_light</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">24dp</item>\
+
+    </style>
+    <style name="Title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="fontFamily">@font/comfortaa_light</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+    <style name="Link">
+
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="fontFamily">@font/comfortaa_light</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+    <style name="Paragraph">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/comfortaa_light</item>
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+    <style name="CircleImage">
+        <item name="android:background">@drawable/circle</item>
+        <item name="android:elevation">@dimen/box_elevation</item>
+        <item name="android:translationZ">@dimen/box_translationZ</item>
+
+
+    </style>
+    <style name="FloatingActionButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+        <item name="android:tint">?attr/colorOnPrimary</item>
+    </style>
+    <style name="Spinner">
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="listItemLayout">@style/Paragraph</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:layout_weight">1</item>
+
+    </style>
+</resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.profile.ProfileFragment">
+
+    <LinearLayout
+        style="@style/Headbar"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/Header"
+
+            android:text="@string/title_profile"
+            android:textColor="#039BE5" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:elevation="10dp"
+        android:translationZ="10dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="128sp"
+            android:layout_height="128sp"
+            android:background="@drawable/circle"
+            android:backgroundTint="@color/light_grey"
+            android:backgroundTintMode="src_over"
+            android:clipToOutline="true"
+            android:foregroundGravity="left"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            app:srcCompat="@drawable/default_avatar" />
+
+        <TextView
+            android:id="@+id/username_title"
+            style="@style/Header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="0dp"
+            android:text="Username"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ListView
+        android:id="@+id/profile_listmenu"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/rounded_top_corners"
+        android:backgroundTint="?attr/colorSecondary"
+        android:divider="#00000000"
+        android:dividerHeight="0dp"
+        android:padding="24dp"
+        tools:listitem="@layout/listmenu_item" />
+
+
+</LinearLayout>

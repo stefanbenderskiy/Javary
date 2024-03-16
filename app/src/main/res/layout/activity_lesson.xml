@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
+    android:orientation="vertical"
+    android:visibility="visible"
+    tools:context=".activities.lesson.LessonActivity">
+
+    <LinearLayout
+
+        style="@style/Headbar"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/Header"
+            android:layout_weight="1"
+            android:text="Lesson" />
+
+        <ImageButton
+            android:id="@+id/lesson_close"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#00FFFFFF"
+            android:src="@drawable/ic_close"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/lesson_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:ignore="SpeakableTextPresentCheck"></androidx.viewpager.widget.ViewPager>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="vertical"
+        android:padding="@dimen/container_padding">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:clipToOutline="true">
+
+            <ProgressBar
+
+                android:id="@+id/lesson_progress_bar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle"
+                android:backgroundTint="?attr/colorSecondary"
+                android:max="1000"
+                android:padding="@dimen/container_padding"
+                android:progress="100"
+                android:progressBackgroundTint="?attr/backgroundColor"
+                android:progressDrawable="@drawable/horizontal_progress_bar"
+                android:progressTint="?attr/colorPrimary" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:padding="@dimen/container_padding">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/lesson_fab_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:clickable="true"
+            android:src="@drawable/ic_right_arrow"
+            android:tint="@color/white"
+            app:backgroundTint="?attr/colorPrimary"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/lesson_fab_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|left"
+            android:clickable="true"
+            android:src="@drawable/ic_left_arrow"
+            android:tint="@color/white"
+            app:backgroundTint="?attr/colorPrimary"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </FrameLayout>
+
+</LinearLayout>

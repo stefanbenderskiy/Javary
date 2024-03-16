@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="?attr/backgroundColor"
+    android:orientation="vertical"
+    tools:context=".activities.settings.SettingsActivity">
+
+    <LinearLayout
+
+        style="@style/Headbar"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/Header"
+            android:layout_weight="1"
+            android:text="@string/title_settings" />
+
+        <ImageButton
+            android:id="@+id/lesson_close"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="#00FFFFFF"
+            android:src="@drawable/ic_close"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="@dimen/container_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="?attr/colorSecondary"
+            android:orientation="vertical"
+            android:padding="@dimen/container_padding">
+
+            <TextView
+                android:id="@+id/textView2"
+                style="@style/Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/title_theme" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="36dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        style="@style/Paragraph"
+                        android:layout_width="64dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_weight="1"
+                        android:text="@string/title_theme"
+                        tools:ignore="DuplicateIds" />
+
+                    <Spinner
+
+                        android:id="@+id/settings_theme_spinner"
+                        style="@style/Spinner"
+                        android:layout_gravity="right"
+                        android:layout_weight="1"
+                        android:dropDownWidth="wrap_content"
+                        android:entries="@array/themes"
+                        android:spinnerMode="dropdown"
+                        tools:ignore="TouchTargetSizeCheck"
+                        tools:listitem="@layout/spinner_item" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        style="@style/Paragraph"
+                        android:layout_width="64dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_weight="1"
+                        android:text="@string/title_primary_color" />
+
+                    <Spinner
+
+                        android:id="@+id/settings_primarycolor_spinner"
+                        style="@style/Spinner"
+                        android:layout_gravity="right"
+                        android:layout_weight="1"
+                        android:dropDownWidth="wrap_content"
+                        android:entries="@array/colors"
+                        android:spinnerMode="dialog"
+                        tools:ignore="TouchTargetSizeCheck"
+                        tools:listitem="@layout/spinner_item" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

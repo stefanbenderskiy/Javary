@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.registration.RegistrationActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/Header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/registration_text1" />
+
+        <EditText
+            android:id="@+id/activity_registration_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corners"
+            android:backgroundTint="?attr/backgroundColor"
+            android:ems="10"
+            android:hint="write here..."
+            android:inputType="text"
+            android:padding="@dimen/container_padding"
+            android:selectAllOnFocus="true"
+            android:textColor="?attr/colorOnSecondary"
+            android:textColorHint="?attr/colorOnBackground" />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/registration_fab_continue"
+        style="@style/FloatingActionButton"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="32dp"
+        android:clickable="true"
+
+
+        android:src="@drawable/ic_right_arrow"
+        tools:ignore="SpeakableTextPresentCheck" />
+</FrameLayout>
