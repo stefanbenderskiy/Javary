@@ -1,7 +1,5 @@
 package com.reflection.javary.fragments.learning;
 
-import static android.content.Context.MODE_PRIVATE;
-
 import android.annotation.SuppressLint;
 import android.content.res.AssetManager;
 import android.os.Bundle;
@@ -16,8 +14,13 @@ import androidx.viewpager.widget.ViewPager;
 
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.reflection.javary.LessonsController;
 import com.reflection.javary.R;
+import com.reflection.javary.data.DataBase;
+import com.reflection.javary.data.Dataset;
 import com.reflection.javary.lesson.Lesson;
+import com.reflection.javary.lesson.LessonPagerAdapter;
+import com.reflection.javary.lesson.ModulePagerAdapter;
 
 
 public class LearningFragment extends Fragment {
@@ -25,13 +28,19 @@ public class LearningFragment extends Fragment {
 
     private Lesson currentLesson;
     private AssetManager assetManager;
-    private DataController appDC;
-    private DataController lessonsDC;
+    private DataBase appDB;
+
+    private DataBase lessonsDB;
+    private LessonsController lessonsController;
+
     private TextView welcomeText;
     private ViewPager currentLessonPager;
 
     private void Update(){
-
+        Dataset userdata = new Dataset(appDB,"","userdata");
+        welcomeText.setText(getString(R.string.welcome_text)+userdata.getString("username","")+"!");
+        currentLessonPager.setAdapter(new ModulePagerAdapter(getContext(),lessonsController.getCurrentModule()));
+        currentLessonPager.setCurrentItem(lessonsController.getCurrentLesson());
 
     }
 
@@ -41,13 +50,12 @@ public class LearningFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_learning, container, false);
-
-
-        appDC =new DataController(getContext().getSharedPreferences(getString(R.string.app_preferences_name), MODE_PRIVATE)) ;
-        lessonsDC=new DataController(getContext().getSharedPreferences(getString(R.string.lessons_preferences_name), MODE_PRIVATE)) ;
+        lessonsController = new LessonsController(getContext());
+        currentLessonPager = root.findViewById(R.id.current_lesson_pager);
+        appDB =new DataBase(getContext(),getString(R.string.app_database_name)) ;
+        lessonsDB=new DataBase(getContext(),getString(R.string.lessons_database_name));
         assetManager= getContext().getAssets();
         welcomeText = root.findViewById(R.id.welcome);
-        welcomeText.setText(getString(R.string.welcome_text)+appDC.getString("user_name","")+"!");
         Update();
         return root;
     }

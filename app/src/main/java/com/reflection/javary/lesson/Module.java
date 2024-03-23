@@ -1,11 +1,12 @@
 package com.reflection.javary.lesson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Module {
 
     private String title;
-    private List<Lesson> lessons;
+    private List<Lesson> lessons =new ArrayList<>();
 
     public String getTitle() {
         return title;

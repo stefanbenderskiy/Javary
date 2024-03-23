@@ -10,7 +10,10 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
 import com.reflection.javary.AppController;
+import com.reflection.javary.LessonsController;
 import com.reflection.javary.R;
+import com.reflection.javary.data.DataBase;
+import com.reflection.javary.data.Dataset;
 import com.reflection.javary.lesson.Lesson;
 import com.reflection.javary.lesson.LessonPagerAdapter;
 
@@ -22,10 +25,12 @@ public class LessonActivity extends AppCompatActivity {
 
     private ImageButton closeButton;
     private AppController appController;
-    private DataController lessonsDC;
-    private DataController appDC;
+    private LessonsController lessonsController;
+    private DataBase lessonsDB;
+    private DataBase appDB;
     private String  LESSON_NAME;
     private Lesson lesson;
+    private Dataset lessonData;
     private LessonPagerAdapter pagerAdapter;
 
 
@@ -36,28 +41,22 @@ public class LessonActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lesson);
         //initialization
 
-        appDC = new DataController(getSharedPreferences(getString(R.string.app_preferences_name),MODE_PRIVATE));
-        lessonsDC = new DataController(getSharedPreferences(getString(R.string.lessons_preferences_name),MODE_PRIVATE));
+        appDB= new DataBase(this,getString(R.string.app_database_name));
+        lessonsDB = new DataBase(this,getString(R.string.lessons_database_name));
 
         closeButton = findViewById(R.id.lesson_close);
         progressBar = findViewById(R.id.lesson_progress_bar);
         appController= new AppController(this);
+        lessonsController = new LessonsController(this);
         viewPager = findViewById(R.id.lesson_viewpager);
         AssetManager assetManager = getAssets();
-
-        LESSON_NAME= "lesson"+ appDC.getInt("current_module",1) +"."+ appDC.getInt("current_lesson",1);
-
-
-        try {
-            lesson = Lesson.parseFrom(assetManager.open(LESSON_NAME+".xml"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        Dataset lessons = new Dataset(lessonsDB,"","");
+        lesson = lessonsController.getLesson(lessonsController.getCurrentModule(),lessonsController.getCurrentLesson());
+        lessonData = lessonsController.getLessonData(lessonsController.getCurrentModule(),lessonsController.getCurrentLesson());
         pagerAdapter = new LessonPagerAdapter(LessonActivity.this,lesson);
         viewPager.setAdapter(pagerAdapter);
         progressBar.setMax(pagerAdapter.getCount());
-        progressBar.setProgress(lessonsDC.getInt(LESSON_NAME+"_progress",0));
+        progressBar.setProgress(lessonData.getInt("progress",0));
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -68,14 +67,14 @@ public class LessonActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
 
-                int progress= lessonsDC.getInt(LESSON_NAME+"_progress",0);
+                int progress= lessonData.getInt("progress",0);
                 if (progress-1 <= position){
-                    lessonsDC.setInt(LESSON_NAME+"_progress",progress+1);
+                    lessonData.setInt(LESSON_NAME+"_progress",progress+1);
                     progressBar.setProgress(progress+1);
 
                 }
                 if (progress+1 == pagerAdapter.getCount()){
-                    appController.nextLesson();
+                    lessonsController.nextLesson();
                 }
 
             }

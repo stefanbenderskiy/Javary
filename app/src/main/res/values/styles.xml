@@ -67,4 +67,7 @@
         <item name="android:layout_weight">1</item>
 
     </style>
+    <style name="HorList">
+        <item name="android:orientation">horizontal</item>
+    </style>
 </resources>

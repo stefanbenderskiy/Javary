@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Javary</string>
-    <string name="app_database_name">app_preferences</string>
-    <string name="lessons_database_name">lessons_preferences</string>
+    <string name="app_database_name">app_database</string>
+    <string name="lessons_database_name">lessons_database</string>
     <string name="title_learning">Learning</string>
     <string name="title_profile">Profile</string>
     <string name="title_info">About app</string>

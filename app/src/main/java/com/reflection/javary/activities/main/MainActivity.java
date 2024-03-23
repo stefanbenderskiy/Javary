@@ -13,13 +13,15 @@ import androidx.navigation.ui.NavigationUI;
 import com.reflection.javary.AppController;
 import com.reflection.javary.R;
 import com.reflection.javary.activities.registration.RegistrationActivity;
+import com.reflection.javary.data.DataBase;
+import com.reflection.javary.data.Dataset;
 import com.reflection.javary.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
-    private DataController appDC;
+    private DataBase appDB;
     private AppController appController;
 
 
@@ -32,12 +34,12 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         NavigationUI.setupWithNavController(navView, navController);
-        appDC = new DataController(getSharedPreferences(getString(R.string.app_preferences_name),MODE_PRIVATE));
+        appDB = new DataBase(this,getString(R.string.app_database_name));
         appController = new AppController(MainActivity.this);
-
-
+        Dataset userdata= new Dataset(appDB,"","userdata");
         appController.initApp();
-        if (appDC.getString("user_name","").isEmpty()){
+
+        if (userdata.contains("username")){
             Intent intent= new Intent(this, RegistrationActivity.class);
             startActivity(intent);
             finish();

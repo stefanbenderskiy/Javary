@@ -6,46 +6,45 @@ public class Dataset {
     private static String VALID_CHARACTERS= "ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz1234567890";
     private String name;
     private String path;
-    private final Dataset parent;
-    private Dataset children;
+
     private final DataBase dataBase;
     private static final String DATAITEM_SEPARATOR= ".";
     private static final String VALUE_SEPARATOR= ":";
 
     public int getInt(String key,int defValue) {
-        return dataBase.getSource().getInt(path+VALUE_SEPARATOR,defValue);
+        return dataBase.getSource().getInt(path+DATAITEM_SEPARATOR+name+VALUE_SEPARATOR+key,defValue);
     }
     public void setInt(String key,int value) {
         SharedPreferences.Editor editor = dataBase.getSource().edit();
-        editor.remove(path+VALUE_SEPARATOR+key);
-        editor.putInt(path+VALUE_SEPARATOR+key,value);
+        editor.remove(path+DATAITEM_SEPARATOR+name+VALUE_SEPARATOR+key);
+        editor.putInt(path+DATAITEM_SEPARATOR+name+VALUE_SEPARATOR+key,value);
         editor.apply();
     }
     public String getString(String key,String defValue) {
-        return dataBase.getSource().getString(path+VALUE_SEPARATOR,defValue);
+        return dataBase.getSource().getString(path+DATAITEM_SEPARATOR+name+VALUE_SEPARATOR+key,defValue);
     }
     public void setString(String key,String value) {
         SharedPreferences.Editor editor = dataBase.getSource().edit();
-        editor.remove(path+VALUE_SEPARATOR+key);
-        editor.putString(path+VALUE_SEPARATOR+key,value);
+        editor.remove(path+DATAITEM_SEPARATOR+name+VALUE_SEPARATOR+key);
+        editor.putString(path+DATAITEM_SEPARATOR+name+VALUE_SEPARATOR+key,value);
         editor.apply();
     }
     public float getFloat(String key,float defValue) {
-        return dataBase.getSource().getFloat(path+VALUE_SEPARATOR,defValue);
+        return dataBase.getSource().getFloat(path+DATAITEM_SEPARATOR+name+VALUE_SEPARATOR+key,defValue);
     }
     public void setFloat(String key,Float value) {
         SharedPreferences.Editor editor = dataBase.getSource().edit();
-        editor.remove(path+VALUE_SEPARATOR+key);
-        editor.putFloat(path+VALUE_SEPARATOR+key,value);
+        editor.remove(path+DATAITEM_SEPARATOR+name+VALUE_SEPARATOR+key);
+        editor.putFloat(path+DATAITEM_SEPARATOR+name+VALUE_SEPARATOR+key,value);
         editor.apply();
     }
     public long getLong(String key,long defValue) {
-        return dataBase.getSource().getLong(path+VALUE_SEPARATOR,defValue);
+        return dataBase.getSource().getLong(path+DATAITEM_SEPARATOR+name+VALUE_SEPARATOR+key,defValue);
     }
     public void setLong(String key,long value) {
         SharedPreferences.Editor editor = dataBase.getSource().edit();
-        editor.remove(path+VALUE_SEPARATOR+key);
-        editor.putLong(path+VALUE_SEPARATOR+key,value);
+        editor.remove(path+DATAITEM_SEPARATOR+name+VALUE_SEPARATOR+key);
+        editor.putLong(path+DATAITEM_SEPARATOR+name+VALUE_SEPARATOR+key,value);
     }
 
 
@@ -54,7 +53,7 @@ public class Dataset {
 
         for (int i =0;i<keys.length;){
             String key= (String) keys[i];
-            if (key.contains(path+DATAITEM_SEPARATOR+name+VALUE_SEPARATOR)){
+            if (key.contains(path+DATAITEM_SEPARATOR+name+VALUE_SEPARATOR+key)){
                 SharedPreferences.Editor editor = dataBase.getSource().edit();
                 editor.remove(key);
                 editor.apply();
@@ -73,36 +72,12 @@ public class Dataset {
 
     public void remove(String key){
         SharedPreferences.Editor editor = dataBase.getSource().edit();
-        editor.remove(path+VALUE_SEPARATOR+key);
+        editor.remove(path+DATAITEM_SEPARATOR+name+VALUE_SEPARATOR+key);
     }
     public Dataset(DataBase dataBase, String path, String name) {
         this.dataBase =dataBase;
-
-
-        for (char c : name.toCharArray()){
-            if ((VALID_CHARACTERS+".").contains(String.valueOf(c))){
-
-            }else{
-
-                throw  new InvalidItemNameException("Invalid item name");
-            }
-        }
         this.path = path;
-        for (char c : name.toCharArray()){
-            if (VALID_CHARACTERS.contains(String.valueOf(c))){
-
-            }else{
-
-                throw  new InvalidItemNameException("Invalid item name");
-            }
-        }
         this.name = name;
-        String[] parents = path.split(".");
-        String parentName = parents[parents.length-1];
-        parent= new Dataset(dataBase,path.replace("."+parentName,""),parentName);
-
-
-
     }
 
     public boolean contains(String key) {

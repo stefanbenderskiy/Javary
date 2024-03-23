@@ -35,7 +35,12 @@ public class LessonsController {
 
         lessonsDB = new DataBase(context, context.getString(R.string.lessons_database_name));
     }
-
+    public int getCurrentLesson(){
+        return new Dataset(lessonsDB,"","main").getInt("current_lesson",1);
+    }
+    public int getCurrentModule(){
+        return new Dataset(lessonsDB,"","main").getInt("current_module",1);
+    }
     public void nextLesson(){
         Dataset main = new Dataset(lessonsDB,"","main");
 
@@ -60,14 +65,22 @@ public class LessonsController {
     }
 
     public Dataset getModuleData(int index){
-         return new Dataset(lessonsDB,"modules.",String.valueOf(index));
+         return new Dataset(lessonsDB,"modules",String.valueOf(index));
     }
     public Module getModule(int index){
         String[] names = context.getResources().getStringArray(R.array.modules);
         if (index<= names.length){
             Module  module = new Module();
-            module.setTitle(names[index]);
-            return module;
+            module.setTitle(names[index-1]);
+            for (int i =1;true;i++){
+                if (getLesson(index,i)!= null){
+                    module.addLesson(getLesson(index,i));
+
+                }else {
+                    return module;
+                }
+            }
+
         }
         return null;
     }

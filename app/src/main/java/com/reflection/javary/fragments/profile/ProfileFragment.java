@@ -3,6 +3,7 @@ package com.reflection.javary.fragments.profile;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ import com.reflection.javary.R;
 import com.reflection.javary.activities.settings.SettingsActivity;
 import com.reflection.javary.ListMenuAdapter;
 import com.reflection.javary.ListMenuItem;
+import com.reflection.javary.data.DataBase;
+import com.reflection.javary.data.Dataset;
 
 import java.util.List;
 
@@ -27,14 +30,16 @@ public class ProfileFragment extends Fragment {
     private List<ListMenuItem> menuItems;
     private ListView listmenu;
     private TextView usernameTitle;
-    private SharedPreferences appPreferences;
+    private DataBase appDB;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_profile,container,false);
-        appPreferences = getActivity().getSharedPreferences(getActivity().getString(R.string.app_preferences_name), Context.MODE_PRIVATE);
+        appDB = new DataBase(getContext(),getString(R.string.app_database_name));
+        Dataset userdata = new Dataset(appDB,"","userdata");
         listmenu = root.findViewById(R.id.profile_listmenu);
         usernameTitle = root.findViewById(R.id.username_title);
-        usernameTitle.setText(appPreferences.getString("user_name","Username"));
+        usernameTitle.setText(userdata.getString("username","User"));
         menuItems = List.of(
                 new ListMenuItem(
                         getContext().getDrawable(R.drawable.ic_notifications),

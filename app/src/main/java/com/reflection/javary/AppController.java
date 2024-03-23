@@ -94,13 +94,13 @@ public class AppController {
 
     public void initApp(){
         Dataset main= new Dataset(lessonsDB,"","main");
-
+        Dataset settings =new Dataset(appDB,"","settings");
         if (!main.contains("current_lesson")){
             main.setInt("current_module",1);
             main.setInt("current_lesson",1);
 
         }
-        setTheme(main.getInt("theme",0));
+        setTheme(settings.getInt("theme",0));
 
     }
 }

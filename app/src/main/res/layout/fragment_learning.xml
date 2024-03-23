@@ -49,27 +49,16 @@
                     style="@style/Title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingStart="0dp"
                     android:text="Current lesson"
-                    android:textAlignment="center"
-                    android:textColor="?attr/colorOnBackground"
+                    android:textColor="?attr/colorOnSecondary"
                     android:textStyle="bold" />
 
                 <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/current_lesson_pager"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                 </androidx.viewpager.widget.ViewPager>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_top_corners"
-                android:backgroundTint="?attr/colorSecondary"
-                android:orientation="vertical"
-                android:padding="@dimen/container_padding">
 
                 <TextView
                     style="@style/Title"
@@ -93,6 +82,7 @@
                     android:text="Your Progress"
                     android:textColor="?attr/colorOnSecondary"
                     android:textStyle="bold" />
+
             </LinearLayout>
 
         </LinearLayout>
