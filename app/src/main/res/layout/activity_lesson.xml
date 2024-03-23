@@ -42,60 +42,44 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0"
-        android:orientation="vertical"
         android:padding="@dimen/container_padding">
 
-        <FrameLayout
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/lesson_fab_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/ic_left_arrow"
+            android:tint="@color/white"
+            app:backgroundTint="?attr/colorPrimary"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <ProgressBar
+
+            android:id="@+id/lesson_progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:clipToOutline="true">
-
-            <ProgressBar
-
-                android:id="@+id/lesson_progress_bar"
-                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/circle"
-                android:backgroundTint="?attr/colorSecondary"
-                android:max="1000"
-                android:padding="@dimen/container_padding"
-                android:progress="100"
-                android:progressBackgroundTint="?attr/backgroundColor"
-                android:progressDrawable="@drawable/horizontal_progress_bar"
-                android:progressTint="?attr/colorPrimary" />
-        </FrameLayout>
-
-    </LinearLayout>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:padding="@dimen/container_padding">
+            android:layout_weight="1"
+            android:background="@drawable/circle"
+            android:backgroundTint="?attr/colorSecondary"
+            android:max="1000"
+            android:padding="@dimen/container_padding"
+            android:progress="100"
+            android:progressBackgroundTint="?attr/backgroundColor"
+            android:progressDrawable="@drawable/horizontal_progress_bar"
+            android:progressTint="?attr/colorPrimary" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/lesson_fab_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
             android:clickable="true"
             android:src="@drawable/ic_right_arrow"
             android:tint="@color/white"
             app:backgroundTint="?attr/colorPrimary"
             tools:ignore="SpeakableTextPresentCheck" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/lesson_fab_previous"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|left"
-            android:clickable="true"
-            android:src="@drawable/ic_left_arrow"
-            android:tint="@color/white"
-            app:backgroundTint="?attr/colorPrimary"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </FrameLayout>
+    </LinearLayout>
 
 </LinearLayout>

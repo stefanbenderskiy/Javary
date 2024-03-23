@@ -1,9 +1,7 @@
 package com.reflection.javary.activities.main;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -13,7 +11,6 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import com.reflection.javary.AppController;
-import com.reflection.javary.DataController;
 import com.reflection.javary.R;
 import com.reflection.javary.activities.registration.RegistrationActivity;
 import com.reflection.javary.databinding.ActivityMainBinding;

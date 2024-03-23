@@ -19,109 +19,83 @@
             android:text="@string/title_learning" />
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="256dp"
-        android:background="@drawable/rounded_top_corners"
-        android:orientation="vertical"
-        android:padding="@dimen/container_padding">
+        android:layout_height="match_parent">
 
-        <TextView
-            style="@style/Title"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Current lesson"
-            android:textColor="?attr/colorOnSecondary"
-            android:textStyle="bold" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="192dp"
-            android:background="@drawable/rounded_corners"
-            android:backgroundTint="?attr/colorSecondary"
-            android:clipToOutline="true"
-            android:padding="24dp"
-            android:translationZ="100dp">
-
-            <ProgressBar
-                android:id="@+id/current_lesson_progress_bar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:layout_marginTop="4dp"
-                android:progressDrawable="@drawable/circular_progress_bar"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/current_lesson_progress_value"
-                style="@style/Paragraph"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="35%"
-                android:textAlignment="center"
-                android:textColor="?attr/colorOnBackground"
-                app:layout_constraintEnd_toEndOf="@+id/current_lesson_progress_bar"
-                app:layout_constraintStart_toStartOf="@+id/current_lesson_progress_bar"
-                app:layout_constraintTop_toBottomOf="@+id/current_lesson_progress_bar" />
-
-            <TextView
-                android:id="@+id/current_lesson_title"
-                style="@style/Title"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:text="TextView"
-                android:textColor="?attr/colorOnSecondary"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/current_lesson_progress_bar"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/current_lesson_fab"
-                style="@style/FloatingActionButton"
-                android:layout_width="wrap_content"
+                android:id="@+id/welcome"
+                style="@style/Header"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:src="@drawable/ic_right_arrow"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:paddingStart="0dp"
+                android:text="Welcome, Stefa!"
+                android:textAlignment="center"
+                android:textColor="?attr/colorPrimary"
+                android:textStyle="bold" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_top_corners"
+                android:orientation="vertical">
 
-    </LinearLayout>
+                <TextView
+                    style="@style/Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="0dp"
+                    android:text="Current lesson"
+                    android:textAlignment="center"
+                    android:textColor="?attr/colorOnBackground"
+                    android:textStyle="bold" />
 
-    <TextView
-        style="@style/Title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="All lessons"
-        android:textColor="?attr/colorOnSecondary"
-        android:textStyle="bold" />
+                <androidx.viewpager.widget.ViewPager
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/rounded_top_corners"
-        android:backgroundTint="?attr/colorSecondary"
-        android:clipToOutline="true"
-        android:elevation="100dp"
-        android:orientation="vertical"
-        android:paddingTop="48dp"
-        android:translationZ="100dp">
+                </androidx.viewpager.widget.ViewPager>
 
-        <ExpandableListView
+            </LinearLayout>
 
-            android:id="@+id/lessons_list_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/rounded_top_corners"
-            android:backgroundTint="?attr/backgroundColor"
-            android:divider="@null"
-            android:dividerHeight="10dp"
-            android:padding="@dimen/container_padding"
-            tools:listheader="@layout/lesson_group"
-            tools:listitem="@layout/lesson_item" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_top_corners"
+                android:backgroundTint="?attr/colorSecondary"
+                android:orientation="vertical"
+                android:padding="@dimen/container_padding">
+
+                <TextView
+                    style="@style/Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="All lessons"
+                    android:textColor="?attr/colorOnSecondary"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/modules_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:scrollbars="horizontal" />
+
+                <TextView
+                    style="@style/Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Your Progress"
+                    android:textColor="?attr/colorOnSecondary"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

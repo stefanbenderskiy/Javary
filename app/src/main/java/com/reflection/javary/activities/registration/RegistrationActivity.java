@@ -4,15 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.reflection.javary.DataController;
 import com.reflection.javary.R;
-import com.reflection.javary.activities.lesson.LessonActivity;
 import com.reflection.javary.activities.main.MainActivity;
 
 public class RegistrationActivity extends AppCompatActivity {

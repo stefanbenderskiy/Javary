@@ -3,41 +3,62 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="384dp"
-        android:layout_height="256dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="192dp"
+        android:layout_margin="@dimen/container_padding"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="?attr/colorSecondary"
         android:clipToOutline="true"
-        android:elevation="100dp"
-        android:orientation="vertical"
         android:padding="24dp"
         android:translationZ="100dp">
 
-        <ImageView
-            android:id="@+id/lesson_box_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="bottom"
+        <ProgressBar
+            android:id="@+id/lesson_box_progress_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="4dp"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lesson_box_progress_value"
+            style="@style/Paragraph"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="?attr/colorPrimary" />
+            android:text="35%"
+            android:textAlignment="center"
+            android:textColor="?attr/colorOnBackground"
+            app:layout_constraintEnd_toEndOf="@+id/lesson_box_progress_bar"
+            app:layout_constraintStart_toStartOf="@+id/lesson_box_progress_bar"
+            app:layout_constraintTop_toBottomOf="@+id/lesson_box_progress_bar" />
 
         <TextView
-            android:id="@+id/current_lesson_title"
+            android:id="@+id/lesson_box_title"
             style="@style/Title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="TextView"
+            android:textColor="?attr/colorOnSecondary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lesson_box_progress_bar"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/current_lesson_link"
-            style="@style/Link"
-            android:layout_width="match_parent"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/lesson_box_fab"
+            style="@style/FloatingActionButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:linksClickable="true"
-            android:text="Continue >" />
+            android:clickable="true"
+            android:src="@drawable/ic_right_arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -4,25 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.preference.PreferenceDataStore;
-import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.reflection.javary.AppController;
-import com.reflection.javary.DataController;
 import com.reflection.javary.R;
 import com.reflection.javary.lesson.Lesson;
 import com.reflection.javary.lesson.LessonPagerAdapter;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 
 public class LessonActivity extends AppCompatActivity {
     private ViewPager viewPager;
