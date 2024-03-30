@@ -2,10 +2,12 @@ package com.reflection.javary;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.view.ContextThemeWrapper;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.reflection.javary.activities.main.MainActivity;
 import com.reflection.javary.data.Dataset;
 import com.reflection.javary.data.DataBase;
 import com.reflection.javary.lesson.Lesson;

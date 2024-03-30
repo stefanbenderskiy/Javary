@@ -31,7 +31,7 @@ public class LessonConverter implements XMLConverter {
                                         case "text":
                                             Text text = new Text(e.getCharacters());
                                             if (e.getAttribute("type")!= null){
-                                                Log.println(Log.INFO,"LESSON_CONVERTER",e.getAttribute("type").value.replace(" ",""));
+
                                                 switch (e.getAttribute("type").value.replace(" ","")){
                                                     case "title":
                                                         text.setType(Text.TYPE.TITLE);

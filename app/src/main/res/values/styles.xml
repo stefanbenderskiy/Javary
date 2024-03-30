@@ -60,12 +60,12 @@
         <item name="android:tint">?attr/colorOnPrimary</item>
     </style>
     <style name="Spinner">
-        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
         <item name="listItemLayout">@style/Paragraph</item>
         <item name="android:layout_gravity">right</item>
         <item name="android:layout_weight">1</item>
-
+        <item name="android:textAlignment"> textEnd</item>
     </style>
     <style name="HorList">
         <item name="android:orientation">horizontal</item>

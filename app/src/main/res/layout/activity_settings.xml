@@ -99,7 +99,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="left"
                         android:layout_weight="1"
-                        android:text="@string/title_primary_color" />
+                        android:text="@string/setting_primary_color" />
 
                     <Spinner
 

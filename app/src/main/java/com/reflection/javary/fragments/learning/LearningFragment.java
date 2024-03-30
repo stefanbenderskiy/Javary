@@ -3,13 +3,17 @@ package com.reflection.javary.fragments.learning;
 import android.annotation.SuppressLint;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 
@@ -21,6 +25,7 @@ import com.reflection.javary.data.Dataset;
 import com.reflection.javary.lesson.Lesson;
 import com.reflection.javary.lesson.LessonPagerAdapter;
 import com.reflection.javary.lesson.ModulePagerAdapter;
+import com.reflection.javary.lesson.ModulesListAdapter;
 
 
 public class LearningFragment extends Fragment {
@@ -32,19 +37,42 @@ public class LearningFragment extends Fragment {
 
     private DataBase lessonsDB;
     private LessonsController lessonsController;
+    private RecyclerView modulesList;
 
     private TextView welcomeText;
     private ViewPager currentLessonPager;
 
-    private void Update(){
+    private void update(){
         Dataset userdata = new Dataset(appDB,"","userdata");
         welcomeText.setText(getString(R.string.welcome_text)+userdata.getString("username","")+"!");
-        currentLessonPager.setAdapter(new ModulePagerAdapter(getContext(),lessonsController.getCurrentModule()));
-        currentLessonPager.setCurrentItem(lessonsController.getCurrentLesson());
 
+        ModulePagerAdapter modulePagerAdapter= new ModulePagerAdapter(getContext(),lessonsController.getCurrentModule());
+        currentLessonPager.setAdapter(modulePagerAdapter);
+        currentLessonPager.setCurrentItem(lessonsController.getCurrentLesson()-1);
+        ModulesListAdapter modulesListAdapter = new ModulesListAdapter(getContext());
+        modulesList.setAdapter(modulesListAdapter);
+        modulesList.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
+        Log.i("LEARNING", String.valueOf(modulesListAdapter.getItemCount()));
+        currentLessonPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                lessonsController.setCurrentLesson(position+1);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        Log.i("MODULE_ADAPTER", String.valueOf(modulePagerAdapter.getCount()));
     }
 
-    private FloatingActionButton currentLessonFAB;
+
     @SuppressLint("MissingInflatedId")
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -54,15 +82,16 @@ public class LearningFragment extends Fragment {
         currentLessonPager = root.findViewById(R.id.current_lesson_pager);
         appDB =new DataBase(getContext(),getString(R.string.app_database_name)) ;
         lessonsDB=new DataBase(getContext(),getString(R.string.lessons_database_name));
+        modulesList  = root.findViewById(R.id.modules_list);
         assetManager= getContext().getAssets();
         welcomeText = root.findViewById(R.id.welcome);
-        Update();
+        update();
         return root;
     }
 
     @Override
     public void onResume() {
-        Update();
+        update();
         super.onResume();
     }
 }

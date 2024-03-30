@@ -7,8 +7,11 @@ import com.reflection.javary.data.DataBase;
 import com.reflection.javary.data.Dataset;
 import com.reflection.javary.lesson.Lesson;
 import com.reflection.javary.lesson.Module;
+import com.reflection.javary.lesson.ModulesListAdapter;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LessonsController {
     private Context context;
@@ -42,25 +45,34 @@ public class LessonsController {
         return new Dataset(lessonsDB,"","main").getInt("current_module",1);
     }
     public void nextLesson(){
-        Dataset main = new Dataset(lessonsDB,"","main");
 
-        int module = main.getInt("current_module",1);
-        int lesson = main.getInt("current_lesson",1);
-        try {
-            assetManager.open("lesson"+(module+1)+".1.xml");
-            main.setInt("current_module",module+1);
-            main.setInt("current_lesson",1);
-        } catch (IOException e) {
-            try {
-                assetManager.open("lesson"+module+"."+(lesson+1)+".xml");
-                main.setInt("current_module",module);
-                main.setInt("current_lesson",lesson+1);
-            } catch (IOException ex) {
 
+        int module = getCurrentModule();
+        int lesson = getCurrentLesson();
+        if (lesson==getModule(module).getSize()){
+            if (getModule(module+1)!= null ){
+                setCurrentModule(module+1);
+                setCurrentLesson(1);
             }
+        }else {
+            setCurrentLesson(lesson+1);
 
         }
 
+    }
+    public void previousLesson(){
+
+
+        int module = getCurrentModule();
+        int lesson = getCurrentLesson();
+        if (lesson !=1){
+            setCurrentLesson(lesson-1);
+        }else {
+            if (module !=1 ){
+                setCurrentModule(module-1);
+                setCurrentLesson(1);
+            }
+        }
 
     }
 
@@ -94,8 +106,27 @@ public class LessonsController {
         }
         return lesson;
     }
+    public List<Module> getModules(){
+        List<Module> modules = new ArrayList<>();
+
+        for (int i=1;true;i++){
+            if (getModule(i)!= null){
+                modules.add(getModule(i));
+            }else {
+                return modules;
+            }
+        }
+
+    }
     public Dataset getLessonData(int module, int index){
 
         return new Dataset(lessonsDB,"modules."+module+".lessons",String.valueOf(index));
+    }
+
+    public void setCurrentLesson(int value) {
+        new Dataset(lessonsDB,"","main").setInt("current_lesson",value);
+    }
+    public void setCurrentModule(int value){
+        new Dataset(lessonsDB,"","main").setInt("current_module",value);
     }
 }

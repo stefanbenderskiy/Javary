@@ -38,11 +38,11 @@ public class SettingsActivity extends AppCompatActivity {
         appDB= new DataBase(this,getString(R.string.app_database_name));
         Dataset settings= new Dataset(appDB,"","settings");
 
-        //themeSpinner.setSelection(settings.getInt("theme",0));
+        themeSpinner.setSelection(settings.getInt("theme",0));
         themeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //settings.setInt("theme",(int) id);
+                settings.setInt("theme",(int) id);
                 appController.setTheme((int) id);
 
             }

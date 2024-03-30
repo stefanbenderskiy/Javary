@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Javary</string>
+    <string name="title_learning">Обучение</string>
+    <string name="title_profile">Профиль</string>
+    <string name="title_info">О приложении</string>
+    <string name="title_settings">Настройки</string>
+    <string name="title_notifications">Уведомления</string>
+    <string name="setting_primary_color">Цвет темы</string>
+    <string name="title_theme">Тема</string>
+    <string name="nothing_to_show">Пусто</string>
+    <string name="title_new">Новые</string>
+    <string name="title_viewed">Просмотренные</string>
+    <string name="registration_text1">Как тебя зовут?</string>
+    <string name="welcome_text">"С возвращением, "</string>
+    <string name="text_continue"> Продолжить</string>
+    <string name="text_modules">Модули</string>
+    <string name="title_developers">Разработчики</string>
+    <string name="text_developers">Stefan Benderskiy</string>
+    <string name="title_contact_us">Связаться с нами</string>
+    <string name="text_contact_us">email: stefan.benderskiy@gmail.com \nтелефонный номер:89121231030</string>
+</resources>

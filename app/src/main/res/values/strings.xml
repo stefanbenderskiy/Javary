@@ -1,17 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Javary</string>
-    <string name="app_database_name">app_database</string>
-    <string name="lessons_database_name">lessons_database</string>
+    <string name="app_name" translatable="false">Javary</string>
+    <string name="app_database_name" translatable="false">app_database</string>
+    <string name="lessons_database_name" translatable="false">lessons_database</string>
     <string name="title_learning">Learning</string>
     <string name="title_profile">Profile</string>
     <string name="title_info">About app</string>
     <string name="title_settings">Settings</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_theme">Theme</string>
-    <string name="title_primary_color">Primary Color</string>
+    <string name="setting_primary_color">Primary Color</string>
     <string name="nothing_to_show">There nothing to show</string>
     <string name="title_new">New</string>
     <string name="title_viewed">Viewed</string>
     <string name="registration_text1">What is your name?</string>
-    <string name="welcome_text">Welcome, </string>
+    <string name="welcome_text">"Welcome, "</string>
+    <string name="text_continue"> Continue</string>
+    <string name="text_modules">Modules</string>
+    <string name="title_developers">Developers</string>
+    <string name="text_developers">Stefan Benderskiy</string>
+    <string name="title_contact_us">Contact us</string>
+    <string name="text_contact_us">email: stefan.benderskiy@gmail.com \nphone number:89121231030</string>
 </resources>

@@ -46,7 +46,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
 
 
-                userdata.setString("user_name",name);
+                userdata.setString("username",name);
                 finish();
                 startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
             }

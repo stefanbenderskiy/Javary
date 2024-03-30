@@ -49,39 +49,47 @@
                     style="@style/Title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Current lesson"
+                    android:layout_margin="@dimen/container_padding"
+                    android:text="@string/text_continue"
                     android:textColor="?attr/colorOnSecondary"
                     android:textStyle="bold" />
 
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/current_lesson_pager"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="226dp"
+                    tools:ignore="SpeakableTextPresentCheck">
 
                 </androidx.viewpager.widget.ViewPager>
 
-                <TextView
-                    style="@style/Title"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="All lessons"
-                    android:textColor="?attr/colorOnSecondary"
-                    android:textStyle="bold" />
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/container_padding"
+                    android:background="@drawable/rounded_corners"
+                    android:backgroundTint="?attr/colorSecondary"
+                    android:orientation="vertical"
+                    android:padding="@dimen/container_padding">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/modules_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:scrollbars="horizontal" />
+                    <TextView
+                        style="@style/Title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_modules"
+                        android:textColor="?attr/colorOnSecondary"
+                        android:textStyle="bold" />
 
-                <TextView
-                    style="@style/Title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Your Progress"
-                    android:textColor="?attr/colorOnSecondary"
-                    android:textStyle="bold" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/modules_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_corners"
+                        android:backgroundTint="?attr/colorOnSecondaryFixed"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/container_padding"
+                        android:scrollbars="horizontal"
+                        tools:itemCount="4" />
+                </LinearLayout>
 
             </LinearLayout>
 

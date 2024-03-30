@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         Dataset userdata= new Dataset(appDB,"","userdata");
         appController.initApp();
 
-        if (userdata.contains("username")){
+        if (! userdata.contains("username")){
             Intent intent= new Intent(this, RegistrationActivity.class);
             startActivity(intent);
             finish();

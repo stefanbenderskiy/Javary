@@ -16,7 +16,7 @@ import java.util.List;
 public class ListMenuAdapter extends ArrayAdapter<ListMenuItem>{
 
     private LayoutInflater inflater;
-    private int resource;
+
     public ListMenuAdapter(@NonNull Context context, int resource, @NonNull List<ListMenuItem> items) {
         super(context,resource,items);
         inflater = LayoutInflater.from(context);
