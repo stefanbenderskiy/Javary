@@ -14,8 +14,11 @@
         android:theme="@style/Theme.Javary"
         tools:targetApi="31">
         <activity
+            android:name=".activities.module.ModuleActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.lesson.LessonActivity"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               android:exported="false" />
+            android:exported="false" />
         <activity
             android:name=".activities.registration.RegistrationActivity"
             android:exported="false" />

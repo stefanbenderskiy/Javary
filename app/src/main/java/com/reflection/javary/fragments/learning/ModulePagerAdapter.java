@@ -1,4 +1,4 @@
-package com.reflection.javary.lesson;
+package com.reflection.javary.fragments.learning;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +18,7 @@ import com.reflection.javary.LessonsController;
 import com.reflection.javary.R;
 import com.reflection.javary.activities.lesson.LessonActivity;
 import com.reflection.javary.data.Dataset;
+import com.reflection.javary.lesson.Lesson;
 
 public class ModulePagerAdapter extends PagerAdapter {
     private Context context;

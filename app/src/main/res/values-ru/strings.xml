@@ -9,6 +9,7 @@
     <string name="title_notifications">Уведомления</string>
     <string name="setting_primary_color">Цвет темы</string>
     <string name="title_theme">Тема</string>
+    <string name="title_module">Модуль</string>
     <string name="nothing_to_show">Пусто</string>
     <string name="title_new">Новые</string>
     <string name="title_viewed">Просмотренные</string>

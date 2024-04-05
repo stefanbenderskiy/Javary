@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -17,9 +16,6 @@ import com.reflection.javary.R;
 import com.reflection.javary.data.DataBase;
 import com.reflection.javary.data.Dataset;
 import com.reflection.javary.lesson.Lesson;
-import com.reflection.javary.lesson.LessonPagerAdapter;
-
-import java.io.IOException;
 
 public class LessonActivity extends AppCompatActivity {
     private ViewPager viewPager;
@@ -115,7 +111,7 @@ public class LessonActivity extends AppCompatActivity {
         });
 
 
-        update(lessonsController.getCurrentModule(),lessonsController.getCurrentLesson());
+        update(lessonsController.getCurrentModule(),lessonsController.getSelectedLesson());
     }
 
 

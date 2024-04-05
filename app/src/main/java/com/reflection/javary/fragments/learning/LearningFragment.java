@@ -5,9 +5,9 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,15 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.reflection.javary.LessonsController;
 import com.reflection.javary.R;
 import com.reflection.javary.data.DataBase;
 import com.reflection.javary.data.Dataset;
 import com.reflection.javary.lesson.Lesson;
-import com.reflection.javary.lesson.LessonPagerAdapter;
-import com.reflection.javary.lesson.ModulePagerAdapter;
-import com.reflection.javary.lesson.ModulesListAdapter;
 
 
 public class LearningFragment extends Fragment {
@@ -51,6 +47,7 @@ public class LearningFragment extends Fragment {
         currentLessonPager.setCurrentItem(lessonsController.getCurrentLesson()-1);
         ModulesListAdapter modulesListAdapter = new ModulesListAdapter(getContext());
         modulesList.setAdapter(modulesListAdapter);
+
         modulesList.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
         Log.i("LEARNING", String.valueOf(modulesListAdapter.getItemCount()));
         currentLessonPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -61,7 +58,7 @@ public class LearningFragment extends Fragment {
 
             @Override
             public void onPageSelected(int position) {
-                lessonsController.setCurrentLesson(position+1);
+                lessonsController.setSelectedLesson(position+1);
             }
 
             @Override

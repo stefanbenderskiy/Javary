@@ -7,7 +7,6 @@ import com.reflection.javary.data.DataBase;
 import com.reflection.javary.data.Dataset;
 import com.reflection.javary.lesson.Lesson;
 import com.reflection.javary.lesson.Module;
-import com.reflection.javary.lesson.ModulesListAdapter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,8 +40,20 @@ public class LessonsController {
     public int getCurrentLesson(){
         return new Dataset(lessonsDB,"","main").getInt("current_lesson",1);
     }
+    public int getSelectedLesson(){
+        return new Dataset(lessonsDB,"","main").getInt("selected_lesson",1);
+    }
+    public void setSelectedLesson(int lesson){
+        new Dataset(lessonsDB,"","main").setInt("selected_lesson",lesson);
+    }
     public int getCurrentModule(){
         return new Dataset(lessonsDB,"","main").getInt("current_module",1);
+    }
+    public int getSelectedModule(){
+        return new Dataset(lessonsDB,"","main").getInt("selected_module",1);
+    }
+    public void setSelectedModule(int module){
+        new Dataset(lessonsDB,"","main").setInt("selected_module",module);
     }
     public void nextLesson(){
 

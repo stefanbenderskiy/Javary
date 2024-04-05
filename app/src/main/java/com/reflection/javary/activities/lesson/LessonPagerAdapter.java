@@ -1,4 +1,4 @@
-package com.reflection.javary.lesson;
+package com.reflection.javary.activities.lesson;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.reflection.javary.R;
+import com.reflection.javary.lesson.Element;
+import com.reflection.javary.lesson.Lesson;
+import com.reflection.javary.lesson.Page;
 
 import java.util.ArrayList;
 

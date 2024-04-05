@@ -3,7 +3,6 @@ package com.reflection.javary.activities.settings;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,7 +28,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         appController = new AppController(SettingsActivity.this);
-        closeBtn = findViewById(R.id.lesson_close);
+        closeBtn = findViewById(R.id.settings_close);
         themeSpinner =findViewById(R.id.settings_theme_spinner);
         primarycolorSpinner = findViewById(R.id.settings_primarycolor_spinner);
         closeBtn.setOnClickListener(v -> {
