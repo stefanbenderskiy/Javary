@@ -12,6 +12,7 @@
         android:background="@drawable/rounded_corners"
         android:backgroundTint="?attr/colorSecondary"
         android:clipToOutline="true"
+        android:elevation="@dimen/box_elevation"
         android:padding="24dp"
         android:translationZ="100dp">
 
@@ -21,6 +22,7 @@
             android:layout_width="96dp"
             android:layout_height="96dp"
             android:layout_marginTop="4dp"
+            android:elevation="@dimen/box_elevation"
             android:progressDrawable="@drawable/circular_progress_bar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -53,11 +55,14 @@
             android:id="@+id/lesson_box_fab"
             style="@style/FloatingActionButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="78dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
             android:clickable="true"
             android:src="@drawable/ic_right_arrow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:rippleColor="@null"
             tools:ignore="SpeakableTextPresentCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

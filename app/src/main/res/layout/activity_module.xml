@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activities.module.ModuleActivity" >
+    tools:context=".activities.module.ModuleActivity">
 
     <LinearLayout
-        style="@style/Headbar"
+        style="@style/UpperBar"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:visibility="visible">
@@ -37,7 +37,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/module_title"
+            android:id="@+id/lesson_title"
             style="@style/Header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,15 +81,33 @@
 
             <SearchView
                 android:id="@+id/module_content_search"
+                style="@android:style/Widget.Material.SearchView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_corners"
-                android:backgroundTint="?attr/colorOnSecondaryFixed" />
+                android:backgroundTint="?attr/colorOnSecondaryFixed"
+                android:closeIcon="@drawable/ic_search_close"
+                android:commitIcon="@null"
+                android:goIcon="@null"
+                android:inputType="text|textAutoComplete|textAutoCorrect"
+                android:layout="@null"
+                android:queryBackground="@null"
+                android:searchHintIcon="@null"
+                android:searchIcon="@drawable/ic_search"
+                android:submitBackground="@null"
+                android:suggestionRowLayout="@null" />
 
             <ListView
                 android:id="@+id/module_content_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@drawable/rounded_top_corners"
+                android:backgroundTint="?attr/colorOnSecondaryFixed"
+                android:divider="#00000000"
+                android:dividerHeight="@dimen/activity_vertical_margin"
+                android:padding="@dimen/container_padding"
+                android:scrollbars="none"
                 tools:listitem="@layout/item_lesson" />
         </LinearLayout>
 

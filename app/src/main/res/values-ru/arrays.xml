@@ -16,8 +16,8 @@
 
     </array>
     <array name="modules">
-        <item>1. Знакомство с Java</item>
-
+        <item>Знакомство с Java</item>
+        <item>Типы данных в Java</item>
 
     </array>
 </resources>

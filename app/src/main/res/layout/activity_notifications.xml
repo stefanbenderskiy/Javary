@@ -10,7 +10,7 @@
 
     <LinearLayout
 
-        style="@style/Headbar"
+        style="@style/UpperBar"
         android:orientation="horizontal">
 
         <TextView

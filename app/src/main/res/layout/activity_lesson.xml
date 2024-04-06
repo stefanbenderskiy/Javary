@@ -11,7 +11,7 @@
 
     <LinearLayout
 
-        style="@style/Headbar"
+        style="@style/UpperBar"
         android:layout_width="match_parent"
         android:orientation="horizontal">
 
@@ -19,7 +19,7 @@
             android:id="@+id/textView"
             style="@style/Header"
             android:layout_weight="1"
-            android:text="Lesson" />
+            android:text="@string/title_lesson" />
 
         <ImageButton
             android:id="@+id/lesson_close"
@@ -30,6 +30,14 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/lesson_title"
+        style="@style/Header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lesson title "
+        android:textSize="36dp" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/lesson_viewpager"

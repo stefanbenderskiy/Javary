@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Javary</string>
     <string name="title_learning">Обучение</string>
     <string name="title_profile">Профиль</string>
     <string name="title_info">О приложении</string>
@@ -10,6 +9,7 @@
     <string name="setting_primary_color">Цвет темы</string>
     <string name="title_theme">Тема</string>
     <string name="title_module">Модуль</string>
+    <string name="title_lesson">Урок</string>
     <string name="nothing_to_show">Пусто</string>
     <string name="title_new">Новые</string>
     <string name="title_viewed">Просмотренные</string>

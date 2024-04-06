@@ -9,7 +9,7 @@
 
     <LinearLayout
 
-        style="@style/Headbar"
+        style="@style/UpperBar"
         android:layout_width="match_parent"
         android:orientation="horizontal">
 

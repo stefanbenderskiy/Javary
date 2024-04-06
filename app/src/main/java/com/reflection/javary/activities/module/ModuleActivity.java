@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -31,7 +29,7 @@ public class ModuleActivity extends AppCompatActivity {
     protected void update(int index){
         Module module = lessonsController.getModule(index);
         Dataset data = lessonsController.getModuleData(index);
-        LessonsListAdapter contentAdapter = new LessonsListAdapter(this,index);
+        LessonsListAdapter contentAdapter = new LessonsListAdapter(this,R.layout.item_module,index);
 
         moduleTitle.setText(module.getTitle());
         moduleProgressBar.setMax(module.getSize());
@@ -41,27 +39,21 @@ public class ModuleActivity extends AppCompatActivity {
         moduleContentSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-
+                contentAdapter.getFilter().filter(newText);
                 return false;
             }
         });
-        contentList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                lessonsController.setSelectedLesson(position+1);
-                startActivity(new Intent(ModuleActivity.this, LessonActivity.class));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
+        contentList.setOnItemClickListener((adapterView, view, i, l) -> {
+            lessonsController.setSelectedLesson(i+1);
+            startActivity(new Intent(ModuleActivity.this, LessonActivity.class));
         });
+
 
     }
     @SuppressLint("MissingInflatedId")
@@ -71,7 +63,7 @@ public class ModuleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_module);
         lessonsController = new LessonsController(this);
         closeBtn = findViewById(R.id.module_close);
-        moduleTitle = findViewById(R.id.module_title);
+        moduleTitle = findViewById(R.id.lesson_title);
         moduleProgressBar= findViewById(R.id.module_progress_bar);
         moduleProgressValue =findViewById(R.id.module_progress_value);
         contentList = findViewById(R.id.module_content_list);

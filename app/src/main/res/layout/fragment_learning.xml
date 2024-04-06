@@ -11,7 +11,7 @@
 
     <LinearLayout
 
-        style="@style/Headbar"
+        style="@style/UpperBar"
         android:orientation="horizontal">
 
         <TextView
@@ -27,18 +27,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/welcome"
-                style="@style/Header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="0dp"
-                android:text="Welcome, Stefa!"
-                android:textAlignment="center"
-                android:textColor="?attr/colorPrimary"
-                android:textSize="32dp"
-                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,34 +51,23 @@
 
                 </androidx.viewpager.widget.ViewPager>
 
-                <LinearLayout
+                <TextView
+                    style="@style/Title"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/container_padding"
-                    android:background="@drawable/rounded_corners"
-                    android:backgroundTint="?attr/colorSecondary"
-                    android:orientation="vertical"
-                    android:padding="@dimen/container_padding">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/container_padding"
+                    android:text="@string/text_modules"
+                    android:textColor="?attr/colorOnSecondary"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        style="@style/Title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/text_modules"
-                        android:textColor="?attr/colorOnSecondary"
-                        android:textStyle="bold" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/modules_list"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/rounded_corners"
-                        android:backgroundTint="?attr/colorOnSecondaryFixed"
-                        android:orientation="horizontal"
-                        android:padding="@dimen/container_padding"
-                        android:scrollbars="horizontal"
-                        tools:itemCount="4" />
-                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/modules_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="?attr/colorOnSecondaryFixed"
+                    android:orientation="horizontal"
+                    android:scrollbars="none"
+                    tools:itemCount="4" />
 
             </LinearLayout>
 

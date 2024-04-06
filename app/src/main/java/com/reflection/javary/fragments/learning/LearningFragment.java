@@ -35,19 +35,17 @@ public class LearningFragment extends Fragment {
     private LessonsController lessonsController;
     private RecyclerView modulesList;
 
-    private TextView welcomeText;
     private ViewPager currentLessonPager;
 
     private void update(){
         Dataset userdata = new Dataset(appDB,"","userdata");
-        welcomeText.setText(getString(R.string.welcome_text)+userdata.getString("username","")+"!");
+
 
         ModulePagerAdapter modulePagerAdapter= new ModulePagerAdapter(getContext(),lessonsController.getCurrentModule());
         currentLessonPager.setAdapter(modulePagerAdapter);
         currentLessonPager.setCurrentItem(lessonsController.getCurrentLesson()-1);
         ModulesListAdapter modulesListAdapter = new ModulesListAdapter(getContext());
         modulesList.setAdapter(modulesListAdapter);
-
         modulesList.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
         Log.i("LEARNING", String.valueOf(modulesListAdapter.getItemCount()));
         currentLessonPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -58,6 +56,7 @@ public class LearningFragment extends Fragment {
 
             @Override
             public void onPageSelected(int position) {
+                lessonsController.setSelectedModule(lessonsController.getCurrentModule());
                 lessonsController.setSelectedLesson(position+1);
             }
 
@@ -81,7 +80,7 @@ public class LearningFragment extends Fragment {
         lessonsDB=new DataBase(getContext(),getString(R.string.lessons_database_name));
         modulesList  = root.findViewById(R.id.modules_list);
         assetManager= getContext().getAssets();
-        welcomeText = root.findViewById(R.id.welcome);
+
         update();
         return root;
     }

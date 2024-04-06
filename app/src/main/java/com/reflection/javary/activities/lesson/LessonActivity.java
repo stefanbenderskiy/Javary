@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.reflection.javary.AppController;
@@ -25,6 +26,7 @@ public class LessonActivity extends AppCompatActivity {
     private AppController appController;
     private LessonsController lessonsController;
     private DataBase lessonsDB;
+    private TextView lessonTitle;
     private FloatingActionButton nextFAB;
     private FloatingActionButton previousFAB;
     private DataBase appDB;
@@ -37,7 +39,7 @@ public class LessonActivity extends AppCompatActivity {
         lessonData = lessonsController.getLessonData(module,index);
         pagerAdapter = new LessonPagerAdapter(LessonActivity.this,lesson);
         viewPager.setAdapter(pagerAdapter);
-
+        lessonTitle.setText(lesson.getTitle());
         progressBar.setMax(pagerAdapter.getCount());
         progressBar.setProgress(lessonData.getInt("progress",0));
         if (lessonsController.getLesson(module,index+1)==null){
@@ -67,11 +69,11 @@ public class LessonActivity extends AppCompatActivity {
                 if (position+1> progress){
                     lessonData.setInt("progress",progress+1);
                     progressBar.setProgress(progress+1);
+                    if (progress+1 == lesson.getSize()){
+                        lessonsController.nextLesson();
+                    }
+                }
 
-                }
-                if (progress+1 == pagerAdapter.getCount()){
-                    lessonsController.nextLesson();
-                }
 
             }
 
@@ -96,6 +98,7 @@ public class LessonActivity extends AppCompatActivity {
 
         appDB= new DataBase(this,getString(R.string.app_database_name));
         lessonsDB = new DataBase(this,getString(R.string.lessons_database_name));
+        lessonTitle = findViewById(R.id.lesson_title);
         closeButton = findViewById(R.id.lesson_close);
         progressBar = findViewById(R.id.lesson_progress_bar);
         nextFAB= findViewById(R.id.lesson_fab_next);
@@ -111,7 +114,7 @@ public class LessonActivity extends AppCompatActivity {
         });
 
 
-        update(lessonsController.getCurrentModule(),lessonsController.getSelectedLesson());
+        update(lessonsController.getSelectedModule(),lessonsController.getSelectedLesson());
     }
 
 

@@ -9,7 +9,7 @@
     tools:context=".fragments.profile.ProfileFragment">
 
     <LinearLayout
-        style="@style/Headbar"
+        style="@style/UpperBar"
         android:orientation="horizontal">
 
 

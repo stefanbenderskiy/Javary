@@ -50,7 +50,7 @@ public class ModulesListAdapter extends RecyclerView.Adapter<ModulesListAdapter.
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Module module= modules.get(position);
-        holder.title.setText(module.getTitle());
+        holder.title.setText(position+1+". " +module.getTitle());
         holder.progressBar.setMax(module.getSize());
         holder.progressBar.setProgress(lessonsController.getModuleData(position+1).getInt("progress",0));
         holder.view.setOnClickListener(v->{
