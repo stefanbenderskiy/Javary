@@ -15,7 +15,7 @@ public class DataBase {
         this.name = name;
         source = context.getSharedPreferences(name,Context.MODE_PRIVATE);
     }
-    public void deleteAll(){
+    public void clearAll(){
         SharedPreferences.Editor editor = source.edit();
         editor.clear();
         editor.apply();

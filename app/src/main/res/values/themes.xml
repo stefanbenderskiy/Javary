@@ -17,6 +17,101 @@
 
         <item name="colorOnBackground">@color/grey</item>
         <item name="android:textColorHint">?attr/colorPrimary</item>
+        <item name="android:windowDisablePreview">true</item>
     </style>
+    <style name="Theme.Javary.Orange" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
 
+        <item name="colorPrimary">@color/orange</item>
+
+
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/light_grey</item>
+        <item name="colorOnSecondaryFixed">@color/light_grey</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Background brand color. -->
+        <item name="backgroundColor">@color/light_grey</item>
+
+        <item name="colorOnBackground">@color/grey</item>
+        <item name="android:textColorHint">?attr/colorPrimary</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+    <style name="Theme.Javary.Red" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+
+        <item name="colorPrimary">@color/red</item>
+
+
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/light_grey</item>
+        <item name="colorOnSecondaryFixed">@color/light_grey</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Background brand color. -->
+        <item name="backgroundColor">@color/light_grey</item>
+
+        <item name="colorOnBackground">@color/grey</item>
+        <item name="android:textColorHint">?attr/colorPrimary</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+    <style name="Theme.Javary.Yellow" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+
+        <item name="colorPrimary">@color/yellow</item>
+
+
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/light_grey</item>
+        <item name="colorOnSecondaryFixed">@color/light_grey</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Background brand color. -->
+        <item name="backgroundColor">@color/light_grey</item>
+
+        <item name="colorOnBackground">@color/grey</item>
+        <item name="android:textColorHint">?attr/colorPrimary</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+    <style name="Theme.Javary.Green" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+
+        <item name="colorPrimary">@color/green</item>
+
+
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/light_grey</item>
+        <item name="colorOnSecondaryFixed">@color/light_grey</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Background brand color. -->
+        <item name="backgroundColor">@color/light_grey</item>
+
+        <item name="colorOnBackground">@color/grey</item>
+        <item name="android:textColorHint">?attr/colorPrimary</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+    <style name="Theme.Javary.Purple" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+
+        <item name="colorPrimary">@color/purple</item>
+
+
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/light_grey</item>
+        <item name="colorOnSecondaryFixed">@color/light_grey</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Background brand color. -->
+        <item name="backgroundColor">@color/light_grey</item>
+
+        <item name="colorOnBackground">@color/grey</item>
+        <item name="android:textColorHint">?attr/colorPrimary</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
 </resources>

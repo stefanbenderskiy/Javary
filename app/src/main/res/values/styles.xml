@@ -60,6 +60,14 @@
         <item name="android:backgroundTint">?attr/colorPrimary</item>
         <item name="android:tint">?attr/colorOnPrimary</item>
     </style>
+    <style name="Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/rounded_corners</item>
+        <item name="backgroundTint">?attr/colorPrimary</item>
+        <item name="android:tint">?attr/colorOnPrimary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
     <style name="Spinner">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>

@@ -60,6 +60,7 @@
             android:src="@drawable/ic_left_arrow"
             android:tint="@color/white"
             app:backgroundTint="?attr/colorPrimary"
+            app:elevation="0dp"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <ProgressBar
@@ -86,6 +87,7 @@
             android:src="@drawable/ic_right_arrow"
             android:tint="@color/white"
             app:backgroundTint="?attr/colorPrimary"
+            app:elevation="0dp"
             tools:ignore="SpeakableTextPresentCheck" />
 
     </LinearLayout>

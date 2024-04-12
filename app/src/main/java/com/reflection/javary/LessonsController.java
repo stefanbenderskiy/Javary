@@ -57,7 +57,7 @@ public class LessonsController {
     }
     public void nextLesson(){
 
-
+        getModuleData(getCurrentModule()).setInt("progress",getModuleData(getCurrentModule()).getInt("progress",0)+1);
         int module = getCurrentModule();
         int lesson = getCurrentLesson();
         if (lesson==getModule(module).getSize()){

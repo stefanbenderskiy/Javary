@@ -10,10 +10,15 @@
     <string name="title_theme">Тема</string>
     <string name="title_module">Модуль</string>
     <string name="title_lesson">Урок</string>
+    <string name="title_data">Данные</string>
     <string name="nothing_to_show">Пусто</string>
     <string name="title_new">Новые</string>
     <string name="title_viewed">Просмотренные</string>
+    <string name="title_restart_alert">Перезапустить приложение?</string>
+    <string name="message_restart_alert">Чтобы применить настройки, нужно перезапустить приложение.</string>
     <string name="registration_text1">Как тебя зовут?</string>
+    <string name="positive_text_restart_alert">Перезапустить</string>
+    <string name="negative_text_restart_alert">Отмена</string>
     <string name="welcome_text">"С возвращением, "</string>
     <string name="text_continue"> Продолжить</string>
     <string name="text_modules">Модули</string>

@@ -19,8 +19,7 @@
             style="@style/Header"
 
             android:layout_weight="1"
-            android:text="@string/title_module"
-            android:textColor="#039BE5" />
+            android:text="@string/title_module" />
 
         <ImageButton
             android:id="@+id/module_close"

@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.widget.EditText;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.reflection.javary.AppController;
 import com.reflection.javary.R;
 import com.reflection.javary.activities.main.MainActivity;
+import com.reflection.javary.activities.settings.SettingsActivity;
 import com.reflection.javary.data.DataBase;
 import com.reflection.javary.data.Dataset;
 
@@ -23,6 +25,7 @@ public class RegistrationActivity extends AppCompatActivity {
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 

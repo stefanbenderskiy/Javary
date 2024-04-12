@@ -11,9 +11,11 @@ import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import com.reflection.javary.AppController;
 import com.reflection.javary.LessonsController;
 import com.reflection.javary.R;
 import com.reflection.javary.activities.lesson.LessonActivity;
+import com.reflection.javary.activities.settings.SettingsActivity;
 import com.reflection.javary.data.Dataset;
 import com.reflection.javary.lesson.Module;
 
@@ -24,6 +26,7 @@ public class ModuleActivity extends AppCompatActivity {
     private ProgressBar moduleProgressBar;
     private SearchView moduleContentSearch;
     private LessonsController lessonsController;
+    private AppController appController;
     private ListView contentList;
 
     protected void update(int index){
@@ -34,7 +37,7 @@ public class ModuleActivity extends AppCompatActivity {
         moduleTitle.setText(module.getTitle());
         moduleProgressBar.setMax(module.getSize());
         moduleProgressBar.setProgress(data.getInt("progress",0));
-        moduleProgressValue.setText((data.getInt("progress",0)/module.getSize() *100)+"%");
+        moduleProgressValue.setText((int)( (float)data.getInt("progress",0) /(float) module.getSize() *100f)+"%");
         contentList.setAdapter(contentAdapter);
         moduleContentSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -59,6 +62,8 @@ public class ModuleActivity extends AppCompatActivity {
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        appController = new AppController(ModuleActivity.this);
+        appController.initApp();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_module);
         lessonsController = new LessonsController(this);

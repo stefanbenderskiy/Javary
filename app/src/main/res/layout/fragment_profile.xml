@@ -17,8 +17,7 @@
             android:id="@+id/textView"
             style="@style/Header"
 
-            android:text="@string/title_profile"
-            android:textColor="#039BE5" />
+            android:text="@string/title_profile" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,7 +41,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.5"
-            app:srcCompat="@drawable/default_avatar" />
+            app:srcCompat="@drawable/default_avatar"
+            tools:ignore="UseAppTint" />
 
         <TextView
             android:id="@+id/username_title"

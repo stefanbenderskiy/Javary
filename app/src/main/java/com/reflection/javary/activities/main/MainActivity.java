@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        appController = new AppController(MainActivity.this);
+        appController.initApp();
+
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -35,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         NavigationUI.setupWithNavController(navView, navController);
         appDB = new DataBase(this,getString(R.string.app_database_name));
-        appController = new AppController(MainActivity.this);
+
         Dataset userdata= new Dataset(appDB,"","userdata");
-        appController.initApp();
+
 
         if (! userdata.contains("username")){
             Intent intent= new Intent(this, RegistrationActivity.class);

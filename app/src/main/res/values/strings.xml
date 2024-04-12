@@ -9,12 +9,17 @@
     <string name="title_settings">Settings</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_theme">Theme</string>
+    <string name="title_data">Data</string>
     <string name="title_module">Module</string>
     <string name="title_lesson">Lesson</string>
     <string name="setting_primary_color">Primary Color</string>
     <string name="nothing_to_show">There nothing to show</string>
     <string name="title_new">New</string>
     <string name="title_viewed">Viewed</string>
+    <string name="title_restart_alert">Restart app?</string>
+    <string name="positive_text_restart_alert">Restart</string>
+    <string name="negative_text_restart_alert">Cancel</string>
+    <string name="message_restart_alert">To apply the settings, you need to restart the application.</string>
     <string name="registration_text1">What is your name?</string>
     <string name="welcome_text">"Welcome, "</string>
     <string name="text_continue"> Continue</string>
