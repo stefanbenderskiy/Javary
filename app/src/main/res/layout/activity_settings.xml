@@ -81,7 +81,6 @@
                         android:layout_weight="1"
                         android:contextClickable="false"
                         android:dropDownWidth="wrap_content"
-                        android:entries="@array/themes"
                         android:spinnerMode="dropdown"
                         tools:ignore="TouchTargetSizeCheck"
                         tools:listitem="@layout/spinner_item" />
@@ -109,7 +108,7 @@
                         android:layout_weight="1"
                         android:dropDownWidth="wrap_content"
                         android:entries="@array/colors"
-                        android:spinnerMode="dialog"
+                        android:spinnerMode="dropdown"
                         tools:ignore="TouchTargetSizeCheck"
                         tools:listitem="@layout/spinner_item" />
                 </LinearLayout>
@@ -139,7 +138,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/container_padding"
-                android:text="Clear all data" />
+                android:text="@string/setting_clear_data"
+                android:textAllCaps="false"
+                android:textAppearance="@style/Link" />
         </LinearLayout>
 
     </LinearLayout>

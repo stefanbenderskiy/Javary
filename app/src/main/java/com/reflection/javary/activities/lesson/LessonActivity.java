@@ -42,6 +42,7 @@ public class LessonActivity extends AppCompatActivity {
         int progress= lessonData.getInt("progress",0);
         pagerAdapter = new LessonPagerAdapter(LessonActivity.this,lesson);
         viewPager.setAdapter(pagerAdapter);
+        viewPager.setCurrentItem(Math.max(progress-1,0));
         lessonTitle.setText(lesson.getTitle());
         progressBar.setMax(pagerAdapter.getCount());
         progressBar.setProgress(lessonData.getInt("progress",0));
@@ -55,6 +56,11 @@ public class LessonActivity extends AppCompatActivity {
             previousFAB.setVisibility(View.INVISIBLE);
         }else{
             previousFAB.setVisibility(View.VISIBLE);
+        }
+        lessonData.setInt("progress",progress+1);
+        progressBar.setProgress(progress+1);
+        if (progress+1 == lesson.getSize()){
+            lessonsController.nextLesson();
         }
 
 

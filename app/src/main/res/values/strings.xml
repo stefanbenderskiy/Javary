@@ -13,6 +13,7 @@
     <string name="title_module">Module</string>
     <string name="title_lesson">Lesson</string>
     <string name="setting_primary_color">Primary Color</string>
+    <string name="setting_clear_data">Clear all data</string>
     <string name="nothing_to_show">There nothing to show</string>
     <string name="title_new">New</string>
     <string name="title_viewed">Viewed</string>
@@ -27,5 +28,5 @@
     <string name="title_developers">Developers</string>
     <string name="text_developers">Stefan Benderskiy</string>
     <string name="title_contact_us">Contact us</string>
-    <string name="text_contact_us">email: stefan.benderskiy@gmail.com \nphone number:89121231030</string>
+    <string name="text_contact_us">email: stefan.benderskiy@gmail.com</string>
 </resources>

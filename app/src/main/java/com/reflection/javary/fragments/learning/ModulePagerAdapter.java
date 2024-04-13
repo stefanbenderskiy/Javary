@@ -54,7 +54,7 @@ public class ModulePagerAdapter extends PagerAdapter {
         FloatingActionButton fab = view.findViewById(R.id.lesson_box_fab);
         title.setText(lesson.getTitle());
         int progress =lessonData.getInt("progress",0) ;
-        progressValue.setText((progress/lesson.getSize() *100) +"%");
+        progressValue.setText((int)((float)progress/(float)lesson.getSize() *100f) +"%");
         progressBar.setMax(lesson.getSize());
         progressBar.setProgress(lessonData.getInt("progress",0));
         fab.setOnClickListener(listener -> {

@@ -83,4 +83,10 @@ public class ModuleActivity extends AppCompatActivity {
             finish();
         });
     }
+
+    @Override
+    protected void onResume() {
+        update(lessonsController.getSelectedModule());
+        super.onResume();
+    }
 }

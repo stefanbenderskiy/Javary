@@ -7,6 +7,7 @@
     <string name="title_settings">Настройки</string>
     <string name="title_notifications">Уведомления</string>
     <string name="setting_primary_color">Цвет темы</string>
+    <string name="setting_clear_data">Очистить все данные</string>
     <string name="title_theme">Тема</string>
     <string name="title_module">Модуль</string>
     <string name="title_lesson">Урок</string>
@@ -25,5 +26,5 @@
     <string name="title_developers">Разработчики</string>
     <string name="text_developers">Stefan Benderskiy</string>
     <string name="title_contact_us">Связаться с нами</string>
-    <string name="text_contact_us">email: stefan.benderskiy@gmail.com \nтелефонный номер:89121231030</string>
+    <string name="text_contact_us">email: stefan.benderskiy@gmail.com</string>
 </resources>

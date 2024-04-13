@@ -1,6 +1,8 @@
 package com.reflection.javary.lesson.elements;
 
 import android.content.Context;
+import android.graphics.Typeface;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
@@ -11,21 +13,24 @@ public class Text implements Element {
     private String text;
     private TYPE type= TYPE.PARAGRAPH;
 
+
+
     @Override
     public View toView(Context context) {
-        TextView view=new TextView(context);
+        TextView view = null;
 
 
         switch (type){
             case HEADER:
 
-                view.setTextAppearance(R.style.Header);
+                view = (TextView) LayoutInflater.from(context).inflate(R.layout.header,null);
+
                 break;
             case TITLE:
-                view.setTextAppearance(R.style.Title);
+                view = (TextView) LayoutInflater.from(context).inflate(R.layout.title,null);
                 break;
             case PARAGRAPH:
-                view.setTextAppearance(R.style.Paragraph);
+                view = (TextView) LayoutInflater.from(context).inflate(R.layout.paragraph,null);
                 break;
 
         }

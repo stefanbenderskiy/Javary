@@ -9,12 +9,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import com.reflection.javary.R;
 import com.reflection.javary.AppController;
+
 import com.reflection.javary.activities.main.MainActivity;
 import com.reflection.javary.data.DataBase;
 import com.reflection.javary.data.Dataset;
@@ -69,7 +71,9 @@ public class SettingsActivity extends AppCompatActivity {
         closeBtn = findViewById(R.id.settings_close);
         clearDataBtn = findViewById(R.id.settings_cleardata_btn);
         themeSpinner =findViewById(R.id.settings_theme_spinner);
-        primarycolorSpinner = findViewById(R.id.settings_primarycolor_spinner);
+
+        primarycolorSpinner = findViewById(R.id.settings_primarycolor_spinner);ArrayAdapter<String> themeSpinnerAdapter= new ArrayAdapter<String>(this,R.layout.spinner_item,getResources().getStringArray(R.array.themes));
+        ArrayAdapter<String> primaryColorSpinnerAdapter= new ArrayAdapter<String>(this,R.layout.spinner_item,getResources().getStringArray(R.array.colors));
         closeBtn.setOnClickListener(v -> {
             finish();
         });
@@ -77,6 +81,8 @@ public class SettingsActivity extends AppCompatActivity {
         Dataset settings= new Dataset(appDB,"","settings");
 
         themeSpinner.setSelection(settings.getInt("theme",0));
+        themeSpinner.setAdapter(themeSpinnerAdapter);
+        primarycolorSpinner.setAdapter(primaryColorSpinnerAdapter);
         themeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

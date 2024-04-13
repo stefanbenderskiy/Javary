@@ -48,11 +48,13 @@ public class LessonPagerAdapter extends PagerAdapter {
         LinearLayout content  = view.findViewById(R.id.page_content);
         for (Element e : page.getAll()){
             View v = e.toView(context);
+
             content.addView(v);
 
         }
 
         container.addView(view);
+
         return view;
     }
 
