@@ -25,7 +25,7 @@
             android:background="@drawable/rounded_corners"
             android:backgroundTint="?attr/backgroundColor"
             android:ems="10"
-            android:hint="write here..."
+            android:hint="@string/text_write_here"
             android:inputType="text"
             android:padding="@dimen/container_padding"
             android:selectAllOnFocus="true"

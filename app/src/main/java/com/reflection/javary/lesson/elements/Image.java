@@ -10,18 +10,26 @@ import android.widget.ImageView;
 import com.reflection.javary.R;
 import com.reflection.javary.lesson.Element;
 
+import java.io.IOException;
+
 public class Image implements Element {
     private String src;
-    private SHAPE shape= SHAPE.SQUARE;
+    private SHAPE shape= SHAPE.RECT;
 
     @Override
     public View toView(Context context) {
         ImageView view= new ImageView(context);
-        view.setImageDrawable(Drawable.createFromPath(src));
-        view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        try {
+            view.setImageDrawable(Drawable.createFromStream(context.getAssets().open(src),src));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1000));
         view.setClipToOutline(true);
         switch (shape){
-            case SQUARE:
+            case RECT:
                 break;
             case ROUNDED:
                 view.setBackground(context.getDrawable(R.drawable.rounded_corners));
@@ -34,7 +42,7 @@ public class Image implements Element {
     }
 
     public enum SHAPE{
-            SQUARE,
+            RECT,
             CIRCLE,
             ROUNDED,
     }

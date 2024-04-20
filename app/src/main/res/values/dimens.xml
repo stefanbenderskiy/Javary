@@ -9,5 +9,5 @@
     <dimen name="lesson_box_height">192dp</dimen>
     <dimen name="item_module_height">160dp</dimen>
     <dimen name="item_module_width">256dp</dimen>
-    <dimen name="huge_text_size">48dp</dimen>
+    <dimen name="huge_text_size">32dp</dimen>
 </resources>

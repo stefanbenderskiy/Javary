@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Lesson title "
-        android:textSize="36dp" />
+        android:textSize="@dimen/huge_text_size" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/lesson_viewpager"

@@ -1,7 +1,9 @@
 package com.reflection.javary.lesson;
 
 import android.util.Log;
+import android.widget.ImageView;
 
+import com.reflection.javary.lesson.elements.Image;
 import com.reflection.javary.lesson.elements.Text;
 import com.reflection.javary.parser.XMLConverter;
 import com.reflection.javary.parser.XMLElement;
@@ -46,6 +48,26 @@ public class LessonConverter implements XMLConverter {
                                             }
 
                                             page.add(text);
+                                            break;
+                                        case "img":
+                                            Image image = new Image(e.getAttribute("src").value);
+                                            if (e.getAttribute("shape")!= null){
+
+                                                switch (e.getAttribute("shape").value.replace(" ","")){
+                                                    case "rect":
+                                                        image.setShape(Image.SHAPE.RECT);
+                                                        break;
+                                                    case "rounded":
+                                                        image.setShape(Image.SHAPE.ROUNDED);
+                                                    case "circular":
+                                                        image.setShape(Image.SHAPE.CIRCLE);
+                                                    default:
+                                                        image.setShape(Image.SHAPE.RECT);
+                                                }
+                                            }
+
+                                            page.add(image);
+                                            break;
 
                                     }
                                 }

@@ -8,10 +8,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/rounded_corners"
-        android:backgroundTint="?attr/colorSecondary"
-        android:padding="@dimen/container_padding">
+        android:layout_height="match_parent">
 
         <ScrollView
             android:layout_width="match_parent"

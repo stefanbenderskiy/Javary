@@ -48,7 +48,7 @@ public class LessonPagerAdapter extends PagerAdapter {
         LinearLayout content  = view.findViewById(R.id.page_content);
         for (Element e : page.getAll()){
             View v = e.toView(context);
-
+            v.setPadding(0,context.getResources().getDimensionPixelSize(R.dimen.container_padding),0,0);
             content.addView(v);
 
         }
