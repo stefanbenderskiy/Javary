@@ -14,19 +14,25 @@ import java.io.IOException;
 
 public class Image implements Element {
     private String src;
+    private int size;
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
     private SHAPE shape= SHAPE.RECT;
 
     @Override
     public View toView(Context context) {
         ImageView view= new ImageView(context);
-        try {
-            view.setImageDrawable(Drawable.createFromStream(context.getAssets().open(src),src));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
 
 
-        view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1000));
+
+        view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, size));
         view.setClipToOutline(true);
         switch (shape){
             case RECT:
@@ -37,6 +43,12 @@ public class Image implements Element {
             case CIRCLE:
                 view.setBackground(context.getDrawable(R.drawable.circle));
                 break;
+
+        }
+        try {
+            view.setImageDrawable(Drawable.createFromStream(context.getAssets().open(src),src));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
         return view;
     }

@@ -65,6 +65,9 @@ public class LessonConverter implements XMLConverter {
                                                         image.setShape(Image.SHAPE.RECT);
                                                 }
                                             }
+                                            if (e.getAttribute("size")!= null){
+                                                image.setSize(Integer.parseInt(e.getAttribute("size").value) );
+                                            }
 
                                             page.add(image);
                                             break;

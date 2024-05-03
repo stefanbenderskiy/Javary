@@ -19,7 +19,6 @@ public class XMLHandler extends DefaultHandler {
         level+=1;
         element= new XMLElement(qName);
         for (int i = 0; attributes.getQName(i)!=null;i++){
-            System.out.println(attributes.getQName(i));
             element.setAttribute(attributes.getQName(i),attributes.getValue(i));
         }
         parents.add(level,element);
