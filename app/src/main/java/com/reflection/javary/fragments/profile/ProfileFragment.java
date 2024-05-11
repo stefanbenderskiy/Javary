@@ -42,15 +42,8 @@ public class ProfileFragment extends Fragment {
         usernameTitle.setText(userdata.getString("username","User"));
         menuItems = List.of(
                 new ListMenuItem(
-                        getContext().getDrawable(R.drawable.ic_notifications),
-                        getString(R.string.title_notifications), NotificationsActivity.class),
-                new ListMenuItem(
                         getContext().getDrawable(R.drawable.ic_settings),
-                        getString(R.string.title_settings), SettingsActivity.class),
-                new ListMenuItem(
-                        getContext().getDrawable(R.drawable.ic_info),
-                        getString(R.string.title_info), InfoActivity.class)
-
+                        getString(R.string.title_settings), SettingsActivity.class)
         );
         ListMenuAdapter listmenuAdapter = new ListMenuAdapter(getContext(),getId(),menuItems);
         listmenu.setAdapter(listmenuAdapter);

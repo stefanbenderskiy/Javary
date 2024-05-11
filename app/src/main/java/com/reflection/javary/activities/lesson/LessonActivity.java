@@ -69,11 +69,12 @@ public class LessonActivity extends AppCompatActivity {
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
             @Override
             public void onPageSelected(int position) {
+
                 int progress= lessonData.getInt("progress",0);
                 if (position==progress){
                     lessonData.setInt("progress",progress+1);
                     progressBar.setProgress(progress+1);
-                    if (progress+1 == lesson.getSize()){
+                    if (progress+1 == lesson.getSize() && module == lessonsController.getCurrentModule()&& index== lessonsController.getCurrentLesson()){
                         lessonsController.nextLesson();
                     }
                 }
